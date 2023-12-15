@@ -5,7 +5,7 @@ import easyocr
 
 
 
-@st.cache_resource()
+@st.cache(allow_output_mutation= True)
 def easyocr_recognition(img):
     return easyocr.Reader(["ru"]).readtext(img, detail=0, paragraph=True, text_threshold=0.8)
 
